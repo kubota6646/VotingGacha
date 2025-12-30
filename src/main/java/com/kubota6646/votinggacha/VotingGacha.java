@@ -14,32 +14,39 @@ public class VotingGacha extends JavaPlugin {
     
     @Override
     public void onEnable() {
-        // 設定ファイルの読み込み
-        saveDefaultConfig();
-        
-        // マネージャーの初期化
-        configManager = new ConfigManager(this);
-        gachaManager = new GachaManager(this);
-        
-        // コマンドの登録
-        VotingGachaCommand command = new VotingGachaCommand(this);
-        org.bukkit.command.PluginCommand pluginCommand = getCommand("votinggacha");
-        if (pluginCommand != null) {
-            pluginCommand.setExecutor(command);
-            pluginCommand.setTabCompleter(command);
-        } else {
-            getLogger().severe("コマンド 'votinggacha' の登録に失敗しました。plugin.ymlを確認してください。");
+        try {
+            // 設定ファイルの読み込み
+            saveDefaultConfig();
+            
+            // マネージャーの初期化
+            configManager = new ConfigManager(this);
+            gachaManager = new GachaManager(this);
+            
+            // コマンドの登録
+            VotingGachaCommand command = new VotingGachaCommand(this);
+            org.bukkit.command.PluginCommand pluginCommand = getCommand("votinggacha");
+            if (pluginCommand != null) {
+                pluginCommand.setExecutor(command);
+                pluginCommand.setTabCompleter(command);
+            } else {
+                getLogger().severe("コマンド 'votinggacha' の登録に失敗しました。plugin.ymlを確認してください。");
+            }
+            
+            // Votifierのリスナー登録
+            if (Bukkit.getPluginManager().getPlugin("Votifier") != null) {
+                getServer().getPluginManager().registerEvents(new VoteListener(this), this);
+                getLogger().info("Votifierが検出されました。投票リスナーを登録しました。");
+            } else {
+                getLogger().warning("Votifierが見つかりません。投票機能は動作しません。");
+            }
+            
+            getLogger().info("VotingGacha v" + getDescription().getVersion() + " が有効になりました。");
+        } catch (Exception e) {
+            getLogger().severe("プラグインの初期化中にエラーが発生しました: " + e.getMessage());
+            e.printStackTrace();
+            // プラグインを無効化
+            getServer().getPluginManager().disablePlugin(this);
         }
-        
-        // Votifierのリスナー登録
-        if (Bukkit.getPluginManager().getPlugin("Votifier") != null) {
-            getServer().getPluginManager().registerEvents(new VoteListener(this), this);
-            getLogger().info("Votifierが検出されました。投票リスナーを登録しました。");
-        } else {
-            getLogger().warning("Votifierが見つかりません。投票機能は動作しません。");
-        }
-        
-        getLogger().info("VotingGacha v" + getDescription().getVersion() + " が有効になりました。");
     }
     
     @Override

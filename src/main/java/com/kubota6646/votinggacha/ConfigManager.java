@@ -42,19 +42,33 @@ public class ConfigManager {
                 if (inputStream != null) {
                     Files.copy(inputStream, messagesFile.toPath());
                     inputStream.close();
+                } else {
+                    plugin.getLogger().warning("messages.ymlリソースが見つかりません。");
                 }
             } catch (IOException e) {
                 plugin.getLogger().warning("messages.ymlの作成に失敗しました: " + e.getMessage());
+                e.printStackTrace();
             }
         }
         
         messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
+        
+        // 読み込みに失敗した場合のチェック
+        if (messagesConfig == null) {
+            plugin.getLogger().severe("messages.ymlの読み込みに失敗しました。");
+            messagesConfig = new YamlConfiguration(); // 空の設定を作成
+        }
     }
     
     /**
      * メッセージを取得
      */
     public String getMessage(String key) {
+        // messagesConfigがnullの場合はデフォルトメッセージを返す
+        if (messagesConfig == null) {
+            return "§c[VotingGacha] メッセージ設定が読み込まれていません";
+        }
+        
         // 旧形式（messages.キー名）から新形式への変換
         String[] parts = key.split("-", 2);
         String newKey;
@@ -81,7 +95,7 @@ public class ConfigManager {
             newKey = key;
         }
         
-        String message = messagesConfig.getString(newKey, "");
+        String message = messagesConfig.getString(newKey, "§c[メッセージが見つかりません: " + key + "]");
         return ChatColor.translateAlternateColorCodes('&', message);
     }
     
