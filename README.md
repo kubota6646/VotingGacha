@@ -37,13 +37,17 @@ Votifierプラグインと連携して動作します。
 
 ## IntelliJ IDEA 2025.3.1でのビルド方法
 
+**注意：ビルドにはインターネット接続が必要です**（Spigot API等の依存関係をダウンロードするため）
+
+### IDEから：
+
 1. IntelliJ IDEAで「File」→「Open」からこのプロジェクトを開く
 2. Gradleプロジェクトとして認識されるまで待つ
 3. 右側の「Gradle」タブを開く
 4. 「VotingGacha」→「Tasks」→「build」→「build」をダブルクリック
 5. ビルドが完了すると `build/libs/VotingGacha-0.0.1.jar` が生成されます
 
-または、ターミナルから：
+### コマンドラインから：
 ```bash
 ./gradlew build
 ```
