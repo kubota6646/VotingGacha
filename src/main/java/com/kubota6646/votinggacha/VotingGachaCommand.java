@@ -46,7 +46,7 @@ public class VotingGachaCommand implements CommandExecutor, TabCompleter {
         // gachaコマンド（テスト用）
         if (args[0].equalsIgnoreCase("gacha")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage("§cこのコマンドはプレイヤーのみ実行できます。");
+                sender.sendMessage(plugin.getConfigManager().getMessage("command.player-only"));
                 return true;
             }
             
