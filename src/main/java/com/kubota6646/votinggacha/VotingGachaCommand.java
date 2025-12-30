@@ -21,6 +21,7 @@ public class VotingGachaCommand implements CommandExecutor, TabCompleter {
         this.plugin = plugin;
     }
     
+    @SuppressWarnings("NullableProblems")
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         
@@ -75,6 +76,7 @@ public class VotingGachaCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(plugin.getConfigManager().getMessage("help-help"));
     }
     
+    @SuppressWarnings("NullableProblems")
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> completions = new ArrayList<>();
