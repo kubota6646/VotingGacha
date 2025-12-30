@@ -119,7 +119,7 @@ VotingGachaが緑色で表示されればOK
 
 ### ガチャが動作しない
 
-1. Votifierがインストールされているか確認
+1. Votifier または NuVotifier がインストールされているか確認
 2. 投票サイトの設定を確認
 3. テストコマンド `/votinggacha gacha` を試す
 

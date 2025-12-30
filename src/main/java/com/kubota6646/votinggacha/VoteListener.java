@@ -6,8 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 /**
- * Votifierの投票イベントを受け取るリスナー
- * Votifierプラグインがインストールされている場合のみ動作します
+ * Votifier/NuVotifierの投票イベントを受け取るリスナー
+ * Votifier または NuVotifier プラグインがインストールされている場合のみ動作します
  */
 public class VoteListener implements Listener {
     
@@ -18,13 +18,14 @@ public class VoteListener implements Listener {
     }
     
     /**
-     * Votifierの投票イベントを処理
-     * リフレクションを使用してVotifierが存在する場合のみ動作
+     * Votifier/NuVotifierの投票イベントを処理
+     * リフレクションを使用してVotifierまたはNuVotifierが存在する場合のみ動作
      */
     @EventHandler
     public void onVote(org.bukkit.event.Event event) {
-        // Votifierのイベントかどうかをチェック
-        if (!event.getClass().getName().contains("VotifierEvent")) {
+        // Votifier または NuVotifier のイベントかどうかをチェック
+        String eventClassName = event.getClass().getName();
+        if (!eventClassName.contains("VotifierEvent") && !eventClassName.contains("VotingEvent")) {
             return;
         }
         
@@ -51,6 +52,7 @@ public class VoteListener implements Listener {
             
         } catch (Exception e) {
             plugin.getLogger().warning("投票イベントの処理中にエラーが発生しました: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

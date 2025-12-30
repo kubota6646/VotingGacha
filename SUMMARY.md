@@ -16,7 +16,7 @@ VotingGachaは、プレイヤーが投票サイトで投票すると、自動的
 ### 主な機能
 
 1. **投票連動システム**
-   - Votifierプラグインと連携
+   - Votifier/NuVotifierプラグインと連携
    - 投票時に自動でガチャを実行
    - オンラインプレイヤーのみ対象
 
@@ -81,7 +81,7 @@ VotingGacha/
 - 設定ファイルの読み込み
 - マネージャークラスの初期化
 - コマンドとリスナーの登録
-- Votifierプラグインの検出
+- Votifier/NuVotifierプラグインの検出
 
 ### GachaManager.java
 ガチャシステムのコアロジックを担当するクラス。
@@ -111,13 +111,13 @@ VotingGacha/
 - 設定のリロード
 
 ### VoteListener.java
-Votifierの投票イベントを処理するリスナークラス。
+Votifier/NuVotifierの投票イベントを処理するリスナークラス。
 
 **主な機能:**
 - 投票イベントの受信
 - プレイヤーのオンライン状態確認
 - ガチャの実行トリガー
-- リフレクションによる動的なVotifier連携
+- リフレクションによる動的なVotifier/NuVotifier連携
 
 ### VotingGachaCommand.java
 プラグインのコマンド処理を担当するクラス。
@@ -133,7 +133,7 @@ Votifierの投票イベントを処理するリスナークラス。
 ### 依存関係
 
 - **Spigot API**: 1.19.4-R0.1-SNAPSHOT
-- **Votifier**: 2.x（ソフト依存、オプション）
+- **Votifier または NuVotifier**: 2.x（ソフト依存、オプション）
 
 ### ビルドツール
 
@@ -164,7 +164,7 @@ build/libs/VotingGacha-1.0.0.jar → server/plugins/
 
 ### 3. 依存プラグインのインストール
 
-Votifierプラグインをインストール（オプション）
+Votifier または NuVotifier プラグインをインストール（オプション）
 
 ### 4. 設定
 

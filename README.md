@@ -5,7 +5,7 @@ Minecraft Java版 1.19.4 対応の投票ガチャプラグイン
 ## 概要
 
 VotingGachaは、プレイヤーが投票サイトで投票すると、ランダムでアイテムが貰えるMinecraftプラグインです。
-Votifierプラグインと連携して動作します。
+Votifier または NuVotifier プラグインと連携して動作します。
 
 ## 特徴
 
@@ -14,13 +14,14 @@ Votifierプラグインと連携して動作します。
 - 🎨 **カスタマイズ可能**: アイテム名、説明文、個数などを自由に設定
 - 💬 **日本語対応**: すべてのメッセージが日本語
 - 🔧 **簡単設定**: config.ymlで簡単にカスタマイズ
+- 🔌 **互換性**: Votifier と NuVotifier の両方に対応
 
 ## 必要環境
 
 - **Minecraft**: Java版 1.19.4
 - **サーバー**: Spigot / Paper 1.19.4以降
 - **Java**: 17以降
-- **依存プラグイン**: Votifier 2.x（オプション）
+- **依存プラグイン**: Votifier 2.x または NuVotifier（オプション）
 
 ## インストール方法
 
@@ -30,7 +31,9 @@ Votifierプラグインと連携して動作します。
    ./gradlew build
    ```
 3. `build/libs/VotingGacha-1.0.0.jar` をサーバーの `plugins` フォルダにコピー
-4. Votifierプラグインをインストール（まだの場合）
+4. Votifier または NuVotifier プラグインをインストール（まだの場合）
+   - [Votifier](https://www.spigotmc.org/resources/votifier.15./)
+   - [NuVotifier](https://www.spigotmc.org/resources/nuvotifier.13449/)
 5. サーバーを起動
 6. `plugins/VotingGacha/config.yml` を編集して設定をカスタマイズ
 7. サーバーをリロードまたは再起動

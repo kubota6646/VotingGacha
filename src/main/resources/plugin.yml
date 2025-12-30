@@ -4,7 +4,7 @@ main: com.kubota6646.votinggacha.VotingGacha
 api-version: 1.19
 author: kubota6646
 description: 投票するとランダムでアイテムが貰えるプラグイン
-softdepend: [Votifier]
+softdepend: [Votifier, NuVotifier]
 commands:
   votinggacha:
     description: VotingGachaプラグインのメインコマンド
