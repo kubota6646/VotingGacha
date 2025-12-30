@@ -52,31 +52,66 @@ Votifierプラグインと連携して動作します。
 ./gradlew build
 ```
 
-## 設定ファイル (config.yml)
+## 設定ファイル
 
-初回起動時に `plugins/VotingGacha/config.yml` が自動生成されます。
+初回起動時に `plugins/VotingGacha/` フォルダに以下のファイルが自動生成されます：
 
-### メッセージ設定
+- **config.yml** - ガチャアイテムの設定
+- **messages.yml** - メッセージの設定
 
-```yaml
-messages:
-  vote-received: "&a投票ありがとうございます！ガチャを引いています..."
-  gacha-result: "&e【ガチャ結果】&f{item} &7を獲得しました！"
-  no-space: "&c所持アイテムに空きがありません！"
-  reload-success: "&a設定ファイルをリロードしました。"
-```
-
-### ガチャアイテム設定
+### config.yml - ガチャアイテム設定
 
 ```yaml
 gacha-items:
-  - material: DIAMOND        # アイテムの種類
-    amount: 3                # 個数
-    name: "&bダイヤモンド"    # 表示名
-    lore:                    # 説明文
+  # 超レアアイテム（約0.88%）
+  - material: NETHERITE_INGOT
+    amount: 1
+    name: "&4&lネザライトインゴット"
+    lore:
+      - "&d&l★★★ 超レア ★★★"
       - "&7投票ありがとうございます！"
-    weight: 5                # 排出確率の重み（大きいほど出やすい）
+    weight: 1
+  
+  # レアアイテム（約1.75% - 8.77%）
+  - material: DIAMOND
+    amount: 3
+    name: "&b&lダイヤモンド"
+    lore:
+      - "&e&l★★ レア ★★"
+      - "&7投票ありがとうございます！"
+    weight: 5
+  
+  # コモンアイテム（約21.93%）
+  - material: EXPERIENCE_BOTTLE
+    amount: 32
+    name: "&5経験値ボトル"
+    lore:
+      - "&7コモン"
+      - "&7投票ありがとうございます！"
+    weight: 25
 ```
+
+アイテムはレアリティ別に整理されており、確率も明記されています。
+
+### messages.yml - メッセージ設定
+
+```yaml
+vote:
+  received: "&a投票ありがとうございます！ガチャを引いています..."
+  result: "&e【ガチャ結果】&f{item} &7を獲得しました！"
+  no-space: "&c所持アイテムに空きがありません！"
+
+command:
+  no-permission: "&cこのコマンドを実行する権限がありません。"
+  reload-success: "&a設定ファイルをリロードしました。"
+
+help:
+  header: "&6===== VotingGacha ヘルプ ====="
+  gacha: "&e/votinggacha gacha &7- ガチャを引く（テスト用）"
+  reload: "&e/votinggacha reload &7- 設定をリロード"
+```
+
+メッセージは用途別にセクション分けされています。
 
 #### 排出確率の計算方法
 
