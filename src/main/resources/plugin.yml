@@ -18,6 +18,8 @@ permissions:
   votinggacha.admin:
     description: VotingGachaの管理者権限
     default: op
+    children:
+      votinggacha.gacha: true
   votinggacha.gacha:
     description: ガチャを引く権限（テスト用）
     default: op

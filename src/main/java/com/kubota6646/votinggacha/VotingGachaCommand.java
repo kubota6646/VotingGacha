@@ -52,7 +52,8 @@ public class VotingGachaCommand implements CommandExecutor, TabCompleter {
             
             Player player = (Player) sender;
             
-            if (!player.hasPermission("votinggacha.gacha")) {
+            // OP権限またはvotinggacha.gacha権限をチェック
+            if (!player.isOp() && !player.hasPermission("votinggacha.gacha")) {
                 player.sendMessage(plugin.getConfigManager().getMessage("no-permission"));
                 return true;
             }
