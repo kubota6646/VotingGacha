@@ -72,7 +72,8 @@ public class GachaManager {
      */
     public void drawGacha(Player player) {
         if (gachaItems.isEmpty()) {
-            player.sendMessage(plugin.getConfigManager().getMessage("no-permission"));
+            player.sendMessage(plugin.getConfigManager().getMessage("no-items"));
+            plugin.getLogger().warning("ガチャアイテムが設定されていないため、" + player.getName() + " はガチャを引けませんでした。");
             return;
         }
         
