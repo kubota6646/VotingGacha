@@ -2,14 +2,17 @@ package com.kubota6646.votinggacha;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
+import org.bukkit.event.Event;
+import org.bukkit.event.EventException;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.EventExecutor;
 
 /**
  * Votifier/NuVotifierの投票イベントを受け取るリスナー
  * Votifier または NuVotifier プラグインがインストールされている場合のみ動作します
  */
-public class VoteListener implements Listener {
+public class VoteListener implements Listener, EventExecutor {
     
     private final VotingGacha plugin;
     
@@ -18,17 +21,47 @@ public class VoteListener implements Listener {
     }
     
     /**
-     * Votifier/NuVotifierの投票イベントを処理
-     * リフレクションを使用してVotifierまたはNuVotifierが存在する場合のみ動作
+     * イベントハンドラーの登録
+     * リフレクションを使用して動的にイベントを登録
      */
-    @EventHandler
-    public void onVote(org.bukkit.event.Event event) {
-        // Votifier または NuVotifier のイベントかどうかをチェック
-        String eventClassName = event.getClass().getName();
-        if (!eventClassName.contains("VotifierEvent") && !eventClassName.contains("VotingEvent")) {
-            return;
+    public void register() {
+        // Votifier のイベントクラスを登録
+        try {
+            Class<?> votifierEventClass = Class.forName("com.vexsoftware.votifier.model.VotifierEvent");
+            plugin.getServer().getPluginManager().registerEvent(
+                votifierEventClass.asSubclass(Event.class),
+                this,
+                EventPriority.NORMAL,
+                this,
+                plugin
+            );
+            plugin.getLogger().info("Votifierイベントリスナーを登録しました。");
+        } catch (ClassNotFoundException e) {
+            // Votifier が見つからない場合は無視
         }
         
+        // NuVotifier のイベントクラスを登録
+        try {
+            Class<?> nuVotifierEventClass = Class.forName("com.vexsoftware.votifier.model.VotifierEvent");
+            // NuVotifier も同じイベントクラスを使用するため、すでに登録済み
+        } catch (ClassNotFoundException e) {
+            // NuVotifier が見つからない場合は無視
+        }
+    }
+    
+    /**
+     * イベント実行メソッド
+     * EventExecutor インターフェースの実装
+     */
+    @Override
+    public void execute(Listener listener, Event event) throws EventException {
+        handleVoteEvent(event);
+    }
+    
+    /**
+     * Votifier/NuVotifierの投票イベントを処理
+     */
+    private void handleVoteEvent(Event event) {
         try {
             // リフレクションでVoteオブジェクトとプレイヤー名を取得
             Object vote = event.getClass().getMethod("getVote").invoke(event);

@@ -35,18 +35,17 @@ public class VotingGacha extends JavaPlugin {
             // Votifier/NuVotifierのリスナー登録
             boolean votifierFound = false;
             if (Bukkit.getPluginManager().getPlugin("Votifier") != null) {
-                getServer().getPluginManager().registerEvents(new VoteListener(this), this);
-                getLogger().info("Votifierが検出されました。投票リスナーを登録しました。");
                 votifierFound = true;
             }
             if (Bukkit.getPluginManager().getPlugin("NuVotifier") != null) {
-                if (!votifierFound) {
-                    getServer().getPluginManager().registerEvents(new VoteListener(this), this);
-                }
-                getLogger().info("NuVotifierが検出されました。投票リスナーを登録しました。");
                 votifierFound = true;
             }
-            if (!votifierFound) {
+            
+            if (votifierFound) {
+                VoteListener voteListener = new VoteListener(this);
+                voteListener.register();
+                getLogger().info("Votifier/NuVotifierの投票リスナーを登録しました。");
+            } else {
                 getLogger().warning("VotifierまたはNuVotifierが見つかりません。投票機能は動作しません。");
             }
             
