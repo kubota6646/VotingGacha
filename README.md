@@ -139,7 +139,7 @@ help:
 | 権限 | 説明 | デフォルト |
 |------|------|-----------|
 | `votinggacha.use` | 基本機能を使用 | true（全員） |
-| `votinggacha.gacha` | ガチャを引く | true（全員） |
+| `votinggacha.gacha` | ガチャを引く（テスト用） | op |
 | `votinggacha.admin` | 管理者コマンドを使用 | op |
 
 ## 使い方

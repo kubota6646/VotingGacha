@@ -19,5 +19,5 @@ permissions:
     description: VotingGachaの管理者権限
     default: op
   votinggacha.gacha:
-    description: ガチャを引く権限
-    default: true
+    description: ガチャを引く権限（テスト用）
+    default: op
