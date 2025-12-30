@@ -42,7 +42,7 @@ gacha-items:
     
   - material: TOTEM_OF_UNDYING
     amount: 1
-    name: "&e&lトーテム・オブ・アンダイイング"
+    name: "&e&l不死のトーテム"
     lore:
       - "&d&l★★★ 超レア ★★★"
       - "&7投票ありがとうございます！"
