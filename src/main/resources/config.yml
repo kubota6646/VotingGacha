@@ -1,0 +1,94 @@
+# VotingGacha 設定ファイル
+# プレイヤーが投票した時にランダムで貰えるアイテムを設定できます
+
+# メッセージ設定
+messages:
+  vote-received: "&a投票ありがとうございます！ガチャを引いています..."
+  gacha-result: "&e【ガチャ結果】&f{item} &7を獲得しました！"
+  no-space: "&c所持アイテムに空きがありません！"
+  reload-success: "&a設定ファイルをリロードしました。"
+  no-permission: "&cこのコマンドを実行する権限がありません。"
+  help-header: "&6===== VotingGacha ヘルプ ====="
+  help-gacha: "&e/votinggacha gacha &7- ガチャを引く（テスト用）"
+  help-reload: "&e/votinggacha reload &7- 設定をリロード"
+  help-help: "&e/votinggacha help &7- ヘルプを表示"
+
+# ガチャアイテム設定
+# material: アイテムの種類（Minecraft 1.19.4のアイテムID）
+# amount: 個数
+# name: アイテムの表示名（オプション）
+# lore: アイテムの説明（オプション）
+# weight: 排出確率の重み（数値が大きいほど出やすい）
+gacha-items:
+  - material: DIAMOND
+    amount: 3
+    name: "&bダイヤモンド"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 5
+    
+  - material: EMERALD
+    amount: 5
+    name: "&aエメラルド"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 10
+    
+  - material: IRON_INGOT
+    amount: 16
+    name: "&f鉄インゴット"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 20
+    
+  - material: GOLD_INGOT
+    amount: 8
+    name: "&6金インゴット"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 15
+    
+  - material: ENCHANTED_GOLDEN_APPLE
+    amount: 1
+    name: "&6金のリンゴ"
+    lore:
+      - "&7レア！"
+      - "&7投票ありがとうございます！"
+    weight: 2
+    
+  - material: NETHERITE_INGOT
+    amount: 1
+    name: "&4ネザライトインゴット"
+    lore:
+      - "&7超レア！"
+      - "&7投票ありがとうございます！"
+    weight: 1
+    
+  - material: EXPERIENCE_BOTTLE
+    amount: 32
+    name: "&5経験値ボトル"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 25
+    
+  - material: ENDER_PEARL
+    amount: 8
+    name: "&dエンダーパール"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 15
+    
+  - material: GOLDEN_CARROT
+    amount: 16
+    name: "&6金のニンジン"
+    lore:
+      - "&7投票ありがとうございます！"
+    weight: 20
+    
+  - material: TOTEM_OF_UNDYING
+    amount: 1
+    name: "&eトーテム・オブ・アンダイイング"
+    lore:
+      - "&7超レア！"
+      - "&7投票ありがとうございます！"
+    weight: 1

@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.kubota6646'
+version = '0.0.1'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.spigotmc'
+            includeGroup 'org.bukkit'
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+shadowJar {
+    archiveBaseName.set('VotingGacha')
+    archiveClassifier.set('')
+    archiveVersion.set('0.0.1')
+}
+
+build {
+    dependsOn shadowJar
+}

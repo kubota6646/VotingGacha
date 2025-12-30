@@ -1,0 +1,23 @@
+name: VotingGacha
+version: 0.0.1
+main: com.kubota6646.votinggacha.VotingGacha
+api-version: 1.19
+author: kubota6646
+description: 投票するとランダムでアイテムが貰えるプラグイン
+softdepend: [Votifier]
+commands:
+  votinggacha:
+    description: VotingGachaプラグインのメインコマンド
+    usage: /<command> [reload|gacha|help]
+    permission: votinggacha.use
+    permission-message: このコマンドを使用する権限がありません。
+permissions:
+  votinggacha.use:
+    description: VotingGachaの基本機能を使用する権限
+    default: true
+  votinggacha.admin:
+    description: VotingGachaの管理者権限
+    default: op
+  votinggacha.gacha:
+    description: ガチャを引く権限
+    default: true
