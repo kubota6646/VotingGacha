@@ -29,7 +29,7 @@ Votifierプラグインと連携して動作します。
    ```bash
    ./gradlew build
    ```
-3. `build/libs/VotingGacha-0.0.1.jar` をサーバーの `plugins` フォルダにコピー
+3. `build/libs/VotingGacha-1.0.0.jar` をサーバーの `plugins` フォルダにコピー
 4. Votifierプラグインをインストール（まだの場合）
 5. サーバーを起動
 6. `plugins/VotingGacha/config.yml` を編集して設定をカスタマイズ
@@ -45,7 +45,7 @@ Votifierプラグインと連携して動作します。
 2. Gradleプロジェクトとして認識されるまで待つ
 3. 右側の「Gradle」タブを開く
 4. 「VotingGacha」→「Tasks」→「build」→「build」をダブルクリック
-5. ビルドが完了すると `build/libs/VotingGacha-0.0.1.jar` が生成されます
+5. ビルドが完了すると `build/libs/VotingGacha-1.0.0.jar` が生成されます
 
 ### コマンドラインから：
 ```bash
@@ -235,7 +235,7 @@ VotingGacha/
 ./gradlew build
 ```
 
-生成されたJARファイル：`build/libs/VotingGacha-0.0.1.jar`
+生成されたJARファイル：`build/libs/VotingGacha-1.0.0.jar`
 
 ### クリーン
 
@@ -253,7 +253,7 @@ VotingGacha/
 
 ## バージョン履歴
 
-### v0.0.1 (初回リリース)
+### v1.0.0 (初回リリース)
 - 基本的な投票ガチャ機能
 - 重み付けランダムシステム
 - カスタマイズ可能な設定ファイル

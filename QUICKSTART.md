@@ -14,7 +14,7 @@ VotingGachaを素早く始めるための簡易ガイドです。
 
 ```bash
 # JARファイルをサーバーのpluginsフォルダにコピー
-cp build/libs/VotingGacha-0.0.1.jar /path/to/server/plugins/
+cp build/libs/VotingGacha-1.0.0.jar /path/to/server/plugins/
 ```
 
 ### 3. 起動 (1分)

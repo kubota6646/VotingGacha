@@ -3,7 +3,7 @@
 ## プロジェクト情報
 
 - **名前**: VotingGacha
-- **バージョン**: 0.0.1
+- **バージョン**: 1.0.0
 - **対応Minecraft**: Java版 1.19.4
 - **開発環境**: IntelliJ IDEA 2025.3.1 + Gradle 8.5
 - **言語**: Java 17
@@ -159,7 +159,7 @@ Votifierの投票イベントを処理するリスナークラス。
 
 生成されたJARファイルをサーバーの`plugins`フォルダにコピー：
 ```
-build/libs/VotingGacha-0.0.1.jar → server/plugins/
+build/libs/VotingGacha-1.0.0.jar → server/plugins/
 ```
 
 ### 3. 依存プラグインのインストール
@@ -294,7 +294,7 @@ IntelliJ IDEAのデバッグ機能を使用：
 
 ## 更新履歴
 
-### v0.0.1 (初回リリース)
+### v1.0.0 (初回リリース)
 - 基本的な投票ガチャ機能
 - 重み付きランダムシステム
 - カスタマイズ可能な設定

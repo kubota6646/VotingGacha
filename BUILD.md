@@ -38,7 +38,7 @@
 
 ビルドが成功すると、以下の場所にJARファイルが生成されます：
 ```
-build/libs/VotingGacha-0.0.1.jar
+build/libs/VotingGacha-1.0.0.jar
 ```
 
 ## 方法2: コマンドラインを使用する場合
@@ -64,7 +64,7 @@ BUILD SUCCESSFUL in XXs
 
 JARファイルの場所：
 ```
-build/libs/VotingGacha-0.0.1.jar
+build/libs/VotingGacha-1.0.0.jar
 ```
 
 ## トラブルシューティング
@@ -122,7 +122,7 @@ Spigot APIのリポジトリが遅い場合があります。しばらく待つ�
 build/
 ├── classes/                    # コンパイルされたクラスファイル
 ├── libs/
-│   └── VotingGacha-0.0.1.jar  # 配布用JARファイル（これをサーバーに配置）
+│   └── VotingGacha-1.0.0.jar  # 配布用JARファイル（これをサーバーに配置）
 ├── resources/                  # リソースファイル
 └── tmp/                        # 一時ファイル
 ```
@@ -131,7 +131,7 @@ build/
 
 ビルドが成功したら：
 
-1. `build/libs/VotingGacha-0.0.1.jar` をMinecraftサーバーの `plugins` フォルダにコピー
+1. `build/libs/VotingGacha-1.0.0.jar` をMinecraftサーバーの `plugins` フォルダにコピー
 2. サーバーを起動または再起動
 3. `plugins/VotingGacha/config.yml` で設定をカスタマイズ
 
