@@ -40,14 +40,32 @@ public class GachaManager {
         }
         
         for (Object obj : itemConfigs) {
-            if (!(obj instanceof ConfigurationSection)) {
+            // YAMLリストの各要素はMapまたはConfigurationSectionとして読み込まれる
+            ConfigurationSection section;
+            
+            if (obj instanceof ConfigurationSection) {
+                section = (ConfigurationSection) obj;
+            } else if (obj instanceof java.util.Map) {
+                // MapをConfigurationSectionに変換
+                org.bukkit.configuration.MemoryConfiguration memoryConfig = new org.bukkit.configuration.MemoryConfiguration();
+                @SuppressWarnings("unchecked")
+                java.util.Map<String, Object> map = (java.util.Map<String, Object>) obj;
+                for (java.util.Map.Entry<String, Object> entry : map.entrySet()) {
+                    memoryConfig.set(entry.getKey(), entry.getValue());
+                }
+                section = memoryConfig;
+            } else {
+                plugin.getLogger().warning("無効な設定形式をスキップしました: " + obj.getClass().getName());
                 continue;
             }
             
-            ConfigurationSection section = (ConfigurationSection) obj;
-            
             try {
                 String materialName = section.getString("material");
+                if (materialName == null || materialName.isEmpty()) {
+                    plugin.getLogger().warning("materialが指定されていないアイテムをスキップしました。");
+                    continue;
+                }
+                
                 Material material = Material.valueOf(materialName);
                 int amount = section.getInt("amount", 1);
                 String name = section.getString("name", "");
