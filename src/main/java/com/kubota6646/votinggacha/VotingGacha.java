@@ -23,8 +23,13 @@ public class VotingGacha extends JavaPlugin {
         
         // コマンドの登録
         VotingGachaCommand command = new VotingGachaCommand(this);
-        getCommand("votinggacha").setExecutor(command);
-        getCommand("votinggacha").setTabCompleter(command);
+        org.bukkit.command.PluginCommand pluginCommand = getCommand("votinggacha");
+        if (pluginCommand != null) {
+            pluginCommand.setExecutor(command);
+            pluginCommand.setTabCompleter(command);
+        } else {
+            getLogger().severe("コマンド 'votinggacha' の登録に失敗しました。plugin.ymlを確認してください。");
+        }
         
         // Votifierのリスナー登録
         if (Bukkit.getPluginManager().getPlugin("Votifier") != null) {
