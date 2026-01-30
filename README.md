@@ -1,6 +1,6 @@
 # VotingGacha
 
-Minecraft Java版 1.19.4 対応の投票ガチャプラグイン
+Minecraft Java版 1.21.8 対応の投票ガチャプラグイン
 
 ## 概要
 
@@ -18,8 +18,8 @@ Votifier または NuVotifier プラグインと連携して動作します。
 
 ## 必要環境
 
-- **Minecraft**: Java版 1.19.4
-- **サーバー**: Spigot / Paper 1.19.4以降
+- **Minecraft**: Java版 1.21.8
+- **サーバー**: Spigot / Paper 1.21.8以降
 - **Java**: 17以降
 - **依存プラグイン**: Votifier 2.x または NuVotifier（オプション）
 
@@ -179,7 +179,7 @@ gacha-items:
 
 ## アイテムID一覧
 
-Minecraft 1.19.4 で使用可能なアイテムIDは[こちら](https://minecraft.fandom.com/wiki/Java_Edition_data_values)を参照してください。
+Minecraft 1.21.8 で使用可能なアイテムIDは[こちら](https://minecraft.fandom.com/wiki/Java_Edition_data_values)を参照してください。
 
 例：
 - `DIAMOND` - ダイヤモンド
@@ -261,4 +261,4 @@ VotingGacha/
 - 重み付けランダムシステム
 - カスタマイズ可能な設定ファイル
 - 日本語メッセージ対応
-- Minecraft 1.19.4 対応
+- Minecraft 1.21.8 対応
