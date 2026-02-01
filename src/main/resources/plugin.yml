@@ -1,7 +1,7 @@
 name: VotingGacha
-version: 1.0.0
+version: 1.0.1
 main: com.kubota6646.votinggacha.VotingGacha
-api-version: 1.19
+api-version: 1.21
 author: kubota6646
 description: 投票するとランダムでアイテムが貰えるプラグイン
 softdepend: [Votifier, NuVotifier]
